@@ -1,5 +1,4 @@
 from numpy import random
-from labyresolveur import *
 
 def labycreator (x,y,proba0):
     test=False
@@ -9,5 +8,3 @@ def labycreator (x,y,proba0):
         laby[laby<=proba0]=0
         test=True
     return laby
-
-print(labycreator(10,10,0.2))

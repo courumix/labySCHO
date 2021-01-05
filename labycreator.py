@@ -1,4 +1,5 @@
 from numpy import random
+from labyresolveur import *
 
 def labycreator (x,y,proba0):
     test=False

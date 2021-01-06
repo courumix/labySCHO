@@ -9,7 +9,7 @@ laby=[[0,1,0,0,0,0],
       [0,1,1,0,1,0],
       [0,0,0,0,1,0]]
 
-laby=labycreator(10,10,0.9)
+laby=labycreator(10,10,0.2)
 
 lignes=len(laby)
 colonnes=len(laby[0])

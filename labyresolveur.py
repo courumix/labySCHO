@@ -2,17 +2,17 @@ from copy import deepcopy
 from labypile import *
 from labycreator import *
 
-laby=[[0,1,0,0,0,0],
-      [0,1,1,1,1,0],
-      [0,1,0,1,0,0],
-      [0,1,0,1,1,0],
-      [0,1,1,0,1,0],
-      [0,0,0,0,1,0]]
-
-laby=labycreator(10,10,0.2)
-
-lignes=len(laby)
-colonnes=len(laby[0])
+#laby=[[0,1,0,0,0,0],
+#      [0,1,1,1,1,0],
+#      [0,1,0,1,0,0],
+#      [0,1,0,1,1,0],
+#      [0,1,1,0,1,0],
+#      [0,0,0,0,1,0]]
+#
+#laby=labycreator(10,10,0.2)
+#
+#lignes=len(laby)
+#colonnes=len(laby[0])
 
 #T=deepcopy(laby)
 #T[3][2]="hello"
@@ -26,7 +26,9 @@ colonnes=len(laby[0])
 #for ligne in T:
 #    print(ligne)
     
-def voisins(T,v):
+def voisins(T,v,laby):
+    lignes=len(laby)
+    colonnes=len(laby[0])
     V=[]
     i,j=v[0],v[1]
     for a in (-1,1):
@@ -45,7 +47,7 @@ def parcours(laby,entree,sortie):
     T[v[0]][v[1]]=2
     recherche=True
     while recherche:
-        vois=voisins(T,v)
+        vois=voisins(T,v,laby)
         if len(vois)==0:
             if len(p)==0:
                 recherche=False
@@ -59,3 +61,4 @@ def parcours(laby,entree,sortie):
                 empiler(p,v)
                 recherche=False     
     return T,p
+    

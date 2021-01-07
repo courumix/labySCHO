@@ -1,13 +1,9 @@
 from turtle import *
+from labycreator import *
 
-laby=[[0,1,0,0,0,0],
-      [0,1,1,1,1,0],
-      [0,1,0,1,0,0],
-      [0,1,0,1,1,0],
-      [0,1,1,0,1,0],
-      [0,0,0,0,1,0]]
+laby=labycreator(10,10,0.2)
 
-setup(800,800)
+setup(1000,1000)
 up()
 speed(0)
 goto(-340,250)
@@ -29,6 +25,12 @@ def murcarre (longueur):
     lt(135)
     fd(longueur)
     
+def limite (longueur):
+    down()
+    for i in range(4):
+        fd(longueur)
+        lt(90)
+    
 
 def labyturtle (laby):
     lignes=len(laby)
@@ -45,10 +47,37 @@ def labyturtle (laby):
         rt(90)
         fd(50)
         lt(90)
-    ht()
-        
-            
+    goto(-390,300)
+    rt(90)
+    down()
+    pensize(2)
+    limite(lignes*50)
 
-labyturtle(laby)
-
-mainloop()
+###déplacement utilisateur###
+#up()
+#goto(-365,275)
+#def move_forward():
+#    setheading(90)
+#    fd(50)
+#
+#def move_backward():
+#    setheading(270)
+#    fd(50)
+#
+#def turn_left():
+#    setheading(180)
+#    fd(50)
+#
+#def turn_right():
+#    setheading(0)
+#    fd(50)
+#
+#onkey(move_forward, 'Up')
+#onkey(move_backward, 'Down')
+#onkey(turn_left, 'Left')
+#onkey(turn_right, 'Right')
+#
+#listen()
+#done()
+#
+#mainloop()

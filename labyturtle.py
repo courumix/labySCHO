@@ -31,8 +31,32 @@ def limite (longueur):
         fd(longueur)
         lt(90)
     
+def start ():
+    up()
+    goto(-390,275)
+    color('Red')
+    down()
+    circle(25,extent=None,steps=None)
+    
+def end (laby):
+    up()
+    lignes=len(laby)
+    colonnes=len(laby[0])
+    sortieX=lignes-1
+    sortieY=colonnes-1
+    goto(-390,300)
+    setheading(0)
+    fd(50*sortieX)
+    rt(90)
+    fd(50*sortieY + 25)
+    color('Green')
+    down()
+    circle(25,extent=None,steps=None)
 
 def labyturtle (laby):
+    delay(0)
+    ht()
+    tracer(0,0)
     lignes=len(laby)
     colonnes=len(laby[0])
     for i in range (lignes):
@@ -52,6 +76,9 @@ def labyturtle (laby):
     down()
     pensize(2)
     limite(lignes*50)
+    start()
+    end(laby)
+    update()
 
 ###déplacement utilisateur###
 #up()

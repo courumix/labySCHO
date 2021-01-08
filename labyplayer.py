@@ -3,10 +3,22 @@ from labypile import *
 from labyresolveur import *
 from labyturtle import *
 
+player = Turtle()
+player.up()
+player.setpos(-365,275)
+
 fonctionne=False
+x=15
+y=15
+ratio0=0.2
+entree=(0,0)
+
+
 while fonctionne == False:
-    laby=labycreator(15,15,0.5)
-    T,solution=parcours(laby,[0,0],(14,14))
+    laby=labycreator(x,y,ratio0) 
+    laby[entree]=1
+    sortie=(len(laby)-1,len(laby[0])-1)
+    T,solution=parcours(laby,entree,sortie)
     print(solution)
     print(T)
     if len(solution) != 0:
@@ -34,12 +46,12 @@ def turn_right():
     setheading(0)
     fd(50)
 
-onkey(move_forward, 'Up')
-onkey(move_backward, 'Down')
-onkey(turn_left, 'Left')
-onkey(turn_right, 'Right')
+player.screen.onkey(move_forward, 'Up')
+player.screen.onkey(move_backward, 'Down')
+player.screen.onkey(turn_left, 'Left')
+player.screen.onkey(turn_right, 'Right')
 
-listen()
-done()
+player.screen.listen()
+
 
 mainloop()
